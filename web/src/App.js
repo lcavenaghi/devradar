@@ -43,7 +43,7 @@ function App() {
 
   async function handleAddDev(e){
     e.preventDefault();
-    const response = api.post('/devs', {
+    const response = await api.post('/devs', {
       github_username,
       techs,
       latitude,
@@ -53,7 +53,7 @@ function App() {
     setGithubUsername('');
     setTechs('');
 
-    setDevs([...devs, response.data]);
+    setDevs([...devs, response.data.message]);
   }
 
   return (
